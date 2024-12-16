@@ -18,6 +18,8 @@ services:
 
     mysql:
         image: mysql:9.1
+        ports:
+            - '3306:3306'
         volumes:
             - workout-manager-mysql-data:/var/lib/mysql
         environment:
