@@ -15,6 +15,10 @@ services:
         build: ./php-fpm
         volumes:
             - ../:/var/www/workout-manager
+        environment:
+            PHP_IDE_CONFIG: "serverName=workout-manager"
+        extra_hosts:
+            - host.docker.internal:host-gateway
 
     mysql:
         image: mysql:9.1
