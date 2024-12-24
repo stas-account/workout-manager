@@ -30,6 +30,16 @@ services:
             MYSQL_ROOT_PASSWORD: 1234
             MYSQL_DATABASE: workout_manager
 
+    mysql-testing:
+        image: mysql:9.1
+        ports:
+            - '33060:3306'
+        volumes:
+            - workout-manager-mysql-testing-data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: 1234
+            MYSQL_DATABASE: workout_manager
+
     redis:
         image: redis:7.4-alpine
         volumes:
@@ -37,4 +47,5 @@ services:
 
 volumes:
     workout-manager-mysql-data:
+    workout-manager-mysql-testing-data:
     workout-manager-redis-data:
