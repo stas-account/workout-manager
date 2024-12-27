@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('image');
-            $table->foreignId('type_exercise_id')->constrained(table: 'types_exercises');
-            $table->foreignId('target_group_id')->constrained(table: 'target_groups');
+            $table->foreignId('type_exercise_id')->nullable()->constrained(table: 'types_exercises');
+            $table->foreignId('target_group_id')->nullable()->constrained(table: 'target_groups');
+            $table->timestamps();
         });
     }
 

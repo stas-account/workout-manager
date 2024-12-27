@@ -2,19 +2,19 @@ name: workout-manager
 
 services:
     nginx:
-        build: ./nginx
+        build: docker/nginx
         ports:
             - '8080:80'
         volumes:
-            - ./nginx/conf.d/:/etc/nginx/conf.d/
-            - ../:/var/www/workout-manager
+            - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+            - ./:/var/www/workout-manager
         depends_on:
             - php-fpm
 
     php-fpm:
-        build: ./php-fpm
+        build: docker/php-fpm
         volumes:
-            - ../:/var/www/workout-manager
+            - ./:/var/www/workout-manager
         environment:
             PHP_IDE_CONFIG: "serverName=workout-manager"
         extra_hosts:

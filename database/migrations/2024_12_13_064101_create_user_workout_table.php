@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('user_workout', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('workout_id');
-            $table->timestamps();
         });
     }
 
